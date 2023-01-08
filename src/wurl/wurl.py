@@ -12,7 +12,7 @@ class Wurl:
         return getattr(self.parsed, attr)
     
     def __truediv__(self, other) -> "Wurl":
-        return Wurl(url=urljoin(self.url, other))
+        return Wurl(url=urljoin(f"{self.url}/", other))
 
     def __str__(self):
         return self.url
