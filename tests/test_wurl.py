@@ -1,6 +1,6 @@
 import pytest
 
-from wurl import Wurl
+from swurl import Wurl
 
 @pytest.fixture
 def wu():
