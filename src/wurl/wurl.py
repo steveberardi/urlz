@@ -30,7 +30,7 @@ class Wurl:
         self.parsed = urlparse(self.url)
 
     def _normalize(self):
-        """Normalizes URL by appending a trailing slash if url is to root domain"""
+        """Add a trailing slash if url is to root domain"""
         if not self.parsed.path:
             self.url = self.parsed._replace(path="/").geturl()
             self._reparse()

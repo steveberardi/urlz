@@ -1,4 +1,7 @@
 
+lint: venv/bin/activate
+	PYTHONPATH=./src/ ./venv/bin/python -m flake8 src/
+
 format: venv/bin/activate
 	PYTHONPATH=./src/ ./venv/bin/python -m black src/
 

@@ -1,1 +1,1 @@
-from .wurl import Wurl
+from .wurl import Wurl  # noqa: F401
