@@ -5,7 +5,7 @@ Wurl is a simple URL parsing library that provides Pathlib-like usage to URLs in
 ```python
 >>>> wu = Wurl("https://wordbrew.io")
 >>>> wu / "about" / "index.html"
-"https://wordbrew.io/about/index.html"
+https://wordbrew.io/about/index.html
 
 ```
 
