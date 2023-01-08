@@ -16,20 +16,20 @@ class Wurl:
     def __truediv__(self, other) -> "Wurl":
         return Wurl(url=urljoin(f"{self.url}/", other))
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.url
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return self.url
 
     @property
-    def domain(self):
+    def domain(self) -> str:
         return self.parsed.netloc
 
-    def _reparse(self):
+    def _reparse(self) -> None:
         self.parsed = urlparse(self.url)
 
-    def _normalize(self):
+    def _normalize(self) -> None:
         """Add a trailing slash if url is to root domain"""
         if not self.parsed.path:
             self.url = self.parsed._replace(path="/").geturl()
