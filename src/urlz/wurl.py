@@ -20,7 +20,7 @@ class Wurl:
         return self.url
 
     def __repr__(self) -> str:
-        return self.url
+        return f"{self.url}"
 
     @property
     def domain(self) -> str:

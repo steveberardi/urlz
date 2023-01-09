@@ -3,7 +3,7 @@ requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "swurl"
+name = "urlz"
 authors = [{name = "Steve Berardi", email = "hello@steveberardi.com"}]
 readme = "README.md"
 license = {file = "LICENSE"}
