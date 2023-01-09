@@ -1,10 +1,11 @@
-# wurl
+# urlz
 
-Wurl is a simple URL parsing library that provides Pathlib-like usage to URLs in Python:
+urlz is a simple URL parsing library that provides Pathlib-like usage to URLs in Python:
 
 ```python
->>>> wu = Wurl("https://wordbrew.io")
->>>> wu / "about" / "index.html"
+>>>> from urlz import URL
+>>>> url = URL("https://wordbrew.io")
+>>>> url / "about" / "index.html"
 https://wordbrew.io/about/index.html
 
 ```
@@ -17,7 +18,7 @@ https://wordbrew.io/about/index.html
 
 ## Alternatives
 
-Wurl was primarily inspired by [furl](https://github.com/gruns/furl), but along the way I've also discovered these useful URL-parsing libraries:
+urlz was primarily inspired by [furl](https://github.com/gruns/furl), but along the way I've also discovered these useful URL-parsing libraries:
 
 - [furl](https://github.com/gruns/furl)
 - [purl](https://github.com/codeinthehole/purl)

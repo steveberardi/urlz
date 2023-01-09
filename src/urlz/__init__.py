@@ -2,4 +2,4 @@
 
 __version__ = "0.1.0"
 
-from .wurl import Wurl  # noqa: F401
+from .urlz import URL  # noqa: F401

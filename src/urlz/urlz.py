@@ -2,7 +2,7 @@ from typing import Any
 from urllib.parse import urlparse, urljoin
 
 
-class Wurl:
+class URL:
     def __init__(self, url: str, normalize=True):
         self.url = url
         self.parsed = urlparse(url)
@@ -13,8 +13,8 @@ class Wurl:
         # simple pass-through to the parsed result
         return getattr(self.parsed, attr)
 
-    def __truediv__(self, other) -> "Wurl":
-        return Wurl(url=urljoin(f"{self.url}/", other))
+    def __truediv__(self, other) -> "URL":
+        return URL(url=urljoin(f"{self.url}/", other))
 
     def __str__(self) -> str:
         return self.url
