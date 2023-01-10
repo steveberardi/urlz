@@ -26,6 +26,11 @@ class URL:
     def domain(self) -> str:
         return self.parsed.netloc
 
+    def replace(self, **kwargs):
+        self.url = self.parsed._replace(**kwargs).geturl()
+        self._reparse()
+        return self
+
     def _reparse(self) -> None:
         self.parsed = urlparse(self.url)
 
