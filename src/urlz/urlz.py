@@ -26,7 +26,7 @@ class URL:
     def domain(self) -> str:
         return self.parsed.netloc
 
-    def replace(self, **kwargs):
+    def replace(self, **kwargs) -> "URL":
         self.url = self.parsed._replace(**kwargs).geturl()
         self._reparse()
         return self
@@ -39,3 +39,12 @@ class URL:
         if not self.parsed.path:
             self.url = self.parsed._replace(path="/").geturl()
             self._reparse()
+
+
+def urlify(*args, **kwargs) -> str:
+    """Creates a URL by joining all args"""
+    url = args[0]
+    for arg in args[1:]:
+        url = urljoin(f"{url}/", arg)
+
+    return url

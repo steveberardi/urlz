@@ -2,4 +2,4 @@
 
 __version__ = "0.1.0"
 
-from .urlz import URL  # noqa: F401
+from .urlz import URL, urlify  # noqa: F401
