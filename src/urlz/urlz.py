@@ -1,5 +1,5 @@
 from typing import Any
-from urllib.parse import urlparse, urljoin
+from urllib.parse import urlparse, urljoin, urlencode
 
 
 class URL:
@@ -43,8 +43,12 @@ class URL:
 
 def urlify(*args, **kwargs) -> str:
     """Creates a URL by joining all args"""
+    params = kwargs.get("params") or {}
     url = args[0]
     for arg in args[1:]:
         url = urljoin(f"{url}/", arg)
+
+    if params:
+        url = f"{url}?{urlencode(params)}"
 
     return url
