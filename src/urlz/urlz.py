@@ -6,6 +6,7 @@ class URL:
     def __init__(self, url: str, normalize=True):
         self.url = url
         self.parsed = urlparse(url)
+        self.normalized = normalize
         if normalize:
             self._normalize()
 
@@ -27,9 +28,9 @@ class URL:
         return self.parsed.netloc
 
     def replace(self, **kwargs) -> "URL":
-        self.url = self.parsed._replace(**kwargs).geturl()
-        self._reparse()
-        return self
+        return URL(
+            url=self.parsed._replace(**kwargs).geturl(), normalize=self.normalized
+        )
 
     def _reparse(self) -> None:
         self.parsed = urlparse(self.url)

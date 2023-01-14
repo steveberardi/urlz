@@ -28,6 +28,9 @@ def test_url_replace():
     u = URL("https://wordbrew.io/about/index.html")
     assert str(u.replace(scheme="http")) == "http://wordbrew.io/about/index.html"
 
+    u = URL("https://wordbrew.io/about/index.html")
+    assert str(u.replace(path="other")) == "https://wordbrew.io/other"
+
 def test_urlify():
     result = urlify("https://wordbrew.io", "about", "index.html")
     assert result == "https://wordbrew.io/about/index.html"
