@@ -1,4 +1,5 @@
 # urlz
+[![Tests](https://github.com/steveberardi/urlz/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/steveberardi/urlz/actions/workflows/test.yml)
 
 urlz is a simple URL parsing library that provides Pathlib-like usage to URLs in Python:
 
