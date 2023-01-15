@@ -28,9 +28,8 @@ class URL:
         return self.parsed.netloc
 
     def replace(self, **kwargs) -> "URL":
-        return URL(
-            url=self.parsed._replace(**kwargs).geturl(), normalize=self.normalized
-        )
+        new_url = self.parsed._replace(**kwargs).geturl()
+        return URL(new_url, normalize=self.normalized)
 
     def _reparse(self) -> None:
         self.parsed = urlparse(self.url)
