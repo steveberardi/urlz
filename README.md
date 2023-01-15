@@ -16,10 +16,10 @@ It also provides a special URL-building function `urlify`:
 >>>> from urlz import urlify
 >>>> urlify("https://wordbrew.io", "about", "index.html")
 'https://wordbrew.io/about/index.html'
->>>> # with querystring params:
+
+# with querystring params:
 >>>> urlify("https://wordbrew.io", "search", params={"q": "hello world"})
 'https://wordbrew.io/search?q=hello+world'
-
 ```
 
 ## TODO
@@ -29,6 +29,7 @@ It also provides a special URL-building function `urlify`:
 
 
 ## Alternatives
+For more URL-parsing fun, check out these libraries:
 
 - [furl](https://github.com/gruns/furl)
 - [purl](https://github.com/codeinthehole/purl)
