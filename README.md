@@ -22,6 +22,11 @@ It also provides a special URL-building function `urlify`:
 'https://wordbrew.io/search?q=hello+world'
 ```
 
+## Installation
+```
+pip install urlz
+```
+
 ## TODO
 - QS param helpers
 - Path replacements (e.g. `url.replace(path="/new/stuff/")`)
