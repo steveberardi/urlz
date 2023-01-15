@@ -1,6 +1,8 @@
 PYTHONPATH=./src/
 PYTHON=./venv/bin/python
 
+install: venv/bin/activate
+
 lint: venv/bin/activate
 	@$(PYTHON) -m flake8 src/
 	@$(PYTHON) -m mypy src/
