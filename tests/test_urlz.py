@@ -36,5 +36,12 @@ def test_urlify():
     assert result == "https://wordbrew.io/about/index.html"
 
 def test_urlify_with_params():
-    result = urlify("https://wordbrew.io", "search", params={"q": "hello world", "more": "123@99"})
+    result = urlify(
+        "https://wordbrew.io",
+        "search",
+        params={
+            "q": "hello world",
+            "more": "123@99"
+        }
+    )
     assert result == "https://wordbrew.io/search?q=hello+world&more=123%4099"
