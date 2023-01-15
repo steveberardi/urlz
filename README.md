@@ -1,13 +1,30 @@
 # urlz
+[![tests](https://github.com/steveberardi/urlz/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/steveberardi/urlz/actions/workflows/test.yml)
 
 urlz is a simple URL parsing library that provides Pathlib-like usage to URLs in Python:
 
 ```python
 >>>> from urlz import URL
 >>>> url = URL("https://wordbrew.io")
->>>> url / "about" / "index.html"
-https://wordbrew.io/about/index.html
+>>>> str(url / "about" / "index.html")
+'https://wordbrew.io/about/index.html'
+```
 
+It also provides a special URL-building function `urlify`:
+
+```python
+>>>> from urlz import urlify
+>>>> urlify("https://wordbrew.io", "about", "index.html")
+'https://wordbrew.io/about/index.html'
+
+# with querystring params:
+>>>> urlify("https://wordbrew.io", "search", params={"q": "hello world"})
+'https://wordbrew.io/search?q=hello+world'
+```
+
+## Installation
+```
+pip install urlz
 ```
 
 ## TODO
@@ -17,8 +34,7 @@ https://wordbrew.io/about/index.html
 
 
 ## Alternatives
-
-urlz was primarily inspired by [furl](https://github.com/gruns/furl), but along the way I've also discovered these useful URL-parsing libraries:
+For more URL-parsing fun, check out these libraries:
 
 - [furl](https://github.com/gruns/furl)
 - [purl](https://github.com/codeinthehole/purl)

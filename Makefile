@@ -17,6 +17,9 @@ venv/bin/activate: requirements-dev.txt
 	python -m venv venv
 	./venv/bin/pip install -r requirements-dev.txt
 
+shell: venv/bin/activate
+	@PYTHONPATH=./src/ $(PYTHON)
+
 build: venv/bin/activate
 	$(PYTHON) -m flit build
 

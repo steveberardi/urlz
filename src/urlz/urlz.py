@@ -21,7 +21,7 @@ class URL:
         return self.url
 
     def __repr__(self) -> str:
-        return f"{self.url}"
+        return f"URL('{self.url}')"
 
     @property
     def domain(self) -> str:
