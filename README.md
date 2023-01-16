@@ -1,5 +1,6 @@
 # urlz
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/steveberardi/urlz/test.yml?style=for-the-badge)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/urlz?style=for-the-badge)
 ![PyPI](https://img.shields.io/pypi/v/urlz?style=for-the-badge)
 
 urlz is a simple URL parsing library that provides Pathlib-like usage to URLs in Python:
