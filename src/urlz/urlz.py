@@ -44,11 +44,18 @@ class URL:
 def urlify(*args, **kwargs) -> str:
     """Creates a URL by joining all args"""
     params = kwargs.get("params") or {}
-    url = args[0]
-    for arg in args[1:]:
-        url = urljoin(f"{url}/", arg)
+    url = ""
+
+    if args:
+        url = args[0]
+        for arg in args[1:]:
+            url = urljoin(f"{url}/", arg)
 
     if params:
-        url = f"{url}?{urlencode(params)}"
+        encoded = urlencode(params)
+        if url:
+            url = f"{url}?{encoded}"
+        else:
+            url = encoded
 
     return url

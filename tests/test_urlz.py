@@ -48,3 +48,12 @@ def test_urlify_with_params():
         }
     )
     assert result == "https://wordbrew.io/search?q=hello+world&more=123%4099"
+
+def test_urlify_with_params_only():
+    result = urlify(
+        params={
+            "q": "hello world",
+            "more": "123@99"
+        }
+    )
+    assert result == "q=hello+world&more=123%4099"
