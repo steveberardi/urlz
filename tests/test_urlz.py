@@ -39,6 +39,11 @@ def test_url_with_params():
     assert url.params.get("q") == ["hello world"]
     assert url.params.get("more") == ["123@99"]
 
+def test_url_defrag():
+    url = URL("https://wordbrew.io/about/#history")
+    defragged = url.defrag()
+    assert str(defragged) == "https://wordbrew.io/about/"
+
 def test_urlify():
     result = urlify("https://wordbrew.io", "about", "index.html")
     assert result == "https://wordbrew.io/about/index.html"

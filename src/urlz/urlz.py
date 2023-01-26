@@ -1,5 +1,5 @@
 from typing import Any
-from urllib.parse import urlparse, urljoin, urlencode, parse_qs
+from urllib.parse import urldefrag, urlparse, urljoin, urlencode, parse_qs
 
 
 class URL:
@@ -30,6 +30,10 @@ class URL:
     @property
     def domain(self) -> str:
         return self.parsed.netloc
+
+    def defrag(self) -> "URL":
+        url, _ = urldefrag(self.url)
+        return URL(url)
 
     def replace(self, **kwargs) -> "URL":
         new_url = self.parsed._replace(**kwargs).geturl()
