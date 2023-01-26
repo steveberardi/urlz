@@ -1,11 +1,11 @@
 from typing import Any
-from urllib.parse import urlparse, urljoin, urlencode
+from urllib.parse import urlparse, urljoin, urlencode, parse_qs
 
 
 class URL:
     def __init__(self, url: str, normalize=True):
         self.url = url
-        self.parsed = urlparse(url)
+        self._parse()
         self.normalized = normalize
         if normalize:
             self._normalize()
@@ -24,6 +24,10 @@ class URL:
         return f"URL('{self.url}')"
 
     @property
+    def params(self) -> dict:
+        return self.parsed_qs
+
+    @property
     def domain(self) -> str:
         return self.parsed.netloc
 
@@ -31,14 +35,15 @@ class URL:
         new_url = self.parsed._replace(**kwargs).geturl()
         return URL(new_url, normalize=self.normalized)
 
-    def _reparse(self) -> None:
+    def _parse(self) -> None:
         self.parsed = urlparse(self.url)
+        self.parsed_qs = parse_qs(self.parsed.query)
 
     def _normalize(self) -> None:
         """Add a trailing slash if url is to root domain"""
         if not self.parsed.path:
             self.url = self.parsed._replace(path="/").geturl()
-            self._reparse()
+            self._parse()
 
 
 def urlify(*args, **kwargs) -> str:

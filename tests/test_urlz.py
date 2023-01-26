@@ -34,6 +34,11 @@ def test_url_replace():
 def test_url_repr(url):
     assert repr(url) == "URL('https://wordbrew.io/')"
 
+def test_url_with_params():
+    url = URL("https://wordbrew.io/search?q=hello+world&more=123%4099")
+    assert url.params.get("q") == ["hello world"]
+    assert url.params.get("more") == ["123@99"]
+
 def test_urlify():
     result = urlify("https://wordbrew.io", "about", "index.html")
     assert result == "https://wordbrew.io/about/index.html"
