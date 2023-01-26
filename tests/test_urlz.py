@@ -16,6 +16,7 @@ def test_url_attributes(url):
     assert url.domain == "wordbrew.io"
     
     assert (url / "about" / "index.html").path == "/about/index.html"
+    assert (url / "about" / "#fragment").fragment == "fragment"
 
 def test_url_normalize():
     normalized = URL("https://wordbrew.io")
